@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvsca
+*.njsproj
+*.sln
+*.sw?
+
+# Scratch/temp files
+pdf_text_output.txt
+inspect_pdf_text.mjs

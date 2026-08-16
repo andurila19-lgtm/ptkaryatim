@@ -1,0 +1,267 @@
+/* ==========================================================================
+   PT. KARYATIM MANDIRI ENGINEERING - VUE 3 BRAND DESIGN SYSTEM
+   Colors & Layouts extracted 1:1 from Portofolio Karyatim Mandiri Engineering.pdf
+   ========================================================================== */
+
+/* ---------------- Design Tokens & CSS Variables ---------------- */
+:root {
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Signature PDF Brand Blues */
+  --blue-primary: #0077C8;
+  --blue-vibrant: #0084D6;
+  --blue-light: #0099FF;
+  --blue-dark: #005A9E;
+  --blue-deep: #0A2540;
+  --blue-bg-subtle: #EBF5FF;
+
+  /* Accent & Action Colors */
+  --color-wa: #25D366;
+  --color-wa-dark: #128C7E;
+  --color-amber-accent: #FF9D23;
+
+  /* Neutrals */
+  --color-white: #FFFFFF;
+  --color-bg-page: #F0F6FC;
+  --color-card-bg: #FFFFFF;
+  --color-text-dark: #1E293B;
+  --color-text-navy: #0F172A;
+  --color-text-muted: #556987;
+  --color-text-light: #8C9BAE;
+  --color-border: #E2E8F0;
+  --color-border-blue: #C2E0F9;
+
+  /* Shadows */
+  --shadow-pdf-card: 0 15px 35px -5px rgba(0, 119, 200, 0.12), 0 5px 15px rgba(0, 0, 0, 0.04);
+  --shadow-pill: 0 4px 14px rgba(0, 119, 200, 0.35);
+  --shadow-btn: 0 4px 12px rgba(0, 119, 200, 0.25);
+  --shadow-wa: 0 8px 20px rgba(37, 211, 102, 0.4);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------- Reset & Global ---------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-dark);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-navy);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------------- Icons & Buttons ---------------- */
+.icon-sm {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--color-wa);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+.btn-primary:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-wa);
+}
+
+.btn-outline-blue {
+  background: transparent;
+  color: var(--blue-primary);
+  border: 2px solid var(--blue-primary);
+}
+.btn-outline-blue:hover {
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+.btn-block {
+  width: 100%;
+}
+
+/* ---------------- Common PDF Card Elements ---------------- */
+.section {
+  padding: 80px 0;
+}
+
+.pdf-slide-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 44px 40px 32px;
+  box-shadow: var(--shadow-pdf-card);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blue Rounded Pill Badge (Header Khas PDF) */
+.pdf-pill-badge {
+  display: table;
+  margin: 0 auto 32px;
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 10px 38px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-pill);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+.pdf-pill-badge.large {
+  font-size: 1.75rem;
+  padding: 12px 48px;
+}
+
+/* Slide Bottom Bar */
+.slide-bottom-bar {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.slide-pills-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.slide-pill {
+  background-color: var(--blue-bg-subtle);
+  color: var(--blue-dark);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-blue);
+}
+
+.slide-next-btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--blue-primary);
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 119, 200, 0.3);
+  transition: all var(--transition-fast);
+}
+.slide-next-btn:hover {
+  background-color: var(--blue-dark);
+  transform: translateX(4px);
+}
+.slide-next-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 3D-effect Section Title */
+.pdf-3d-title {
+  text-align: center;
+  font-size: 2.35rem;
+  font-weight: 900;
+  color: var(--blue-primary);
+  letter-spacing: -0.5px;
+  margin-bottom: 36px;
+  text-transform: uppercase;
+  text-shadow: 0 3px 6px rgba(0, 119, 200, 0.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

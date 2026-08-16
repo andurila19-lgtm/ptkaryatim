@@ -1,0 +1,1564 @@
+/* ==========================================================================
+   PT. KARYATIM MANDIRI ENGINEERING - PDF-ALIGNED BRAND DESIGN SYSTEM
+   General Contractor Surabaya (Est. 2014)
+   Colors & Layouts extracted 1:1 from Portofolio Karyatim Mandiri Engineering.pdf
+   ========================================================================== */
+
+/* ---------------- Design Tokens & CSS Variables ---------------- */
+:root {
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Signature PDF Brand Blues */
+  --blue-primary: #0077C8;
+  --blue-vibrant: #0084D6;
+  --blue-light: #0099FF;
+  --blue-dark: #005A9E;
+  --blue-deep: #0A2540;
+  --blue-bg-subtle: #EBF5FF;
+  --blue-bg-band-1: #0084D6;
+  --blue-bg-band-2: #0077C8;
+  --blue-bg-band-3: #006AB5;
+  --blue-bg-band-4: #005C9E;
+
+  /* Accent & Action Colors */
+  --color-wa: #25D366;
+  --color-wa-dark: #128C7E;
+  --color-amber-accent: #FF9D23;
+
+  /* Neutrals */
+  --color-white: #FFFFFF;
+  --color-bg-page: #F0F6FC;
+  --color-card-bg: #FFFFFF;
+  --color-text-dark: #1E293B;
+  --color-text-navy: #0F172A;
+  --color-text-muted: #556987;
+  --color-text-light: #8C9BAE;
+  --color-border: #E2E8F0;
+  --color-border-blue: #C2E0F9;
+
+  /* Shadows */
+  --shadow-pdf-card: 0 15px 35px -5px rgba(0, 119, 200, 0.12), 0 5px 15px rgba(0, 0, 0, 0.04);
+  --shadow-pill: 0 4px 14px rgba(0, 119, 200, 0.35);
+  --shadow-btn: 0 4px 12px rgba(0, 119, 200, 0.25);
+  --shadow-wa: 0 8px 20px rgba(37, 211, 102, 0.4);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------- Reset & Global ---------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-dark);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-navy);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------------- Icons ---------------- */
+.icon-sm {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ---------------- Top Bar ---------------- */
+.top-bar {
+  background-color: var(--blue-deep);
+  color: #E2E8F0;
+  font-size: 0.8125rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar-left, .top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.badge-pdf-tag {
+  background-color: var(--blue-primary);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.top-bar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.top-bar-divider {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.top-bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #CBD5E1;
+}
+.top-bar-link:hover {
+  color: var(--blue-light);
+}
+
+/* ---------------- Main Navbar ---------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 78px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.karyatim-logo-mark {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+.karyatim-logo-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-name {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  color: var(--blue-dark);
+  line-height: 1.1;
+}
+
+.company-sub {
+  font-family: var(--font-heading);
+  font-size: 0.675rem;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  padding: 6px 0;
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--blue-primary);
+}
+
+.nav-link.active::after, .nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--blue-primary);
+  border-radius: var(--radius-pill);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: center;
+}
+
+.btn-wa-nav {
+  background: var(--color-wa);
+  color: #FFFFFF;
+  padding: 9px 20px;
+  font-size: 0.875rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+.btn-wa-nav:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-wa);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.menu-toggle span {
+  width: 24px;
+  height: 2.5px;
+  background-color: var(--blue-dark);
+  border-radius: 2px;
+}
+
+/* ---------------- Hero Section (Cover PDF Blue Bands Style) ---------------- */
+.hero-pdf-style {
+  position: relative;
+  background: linear-gradient(135deg, #0084D6 0%, #0077C8 40%, #005A9E 100%);
+  color: #FFFFFF;
+  padding: 70px 0 90px;
+  overflow: hidden;
+}
+
+.hero-bg-bands {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    rgba(255, 255, 255, 0.05) 20%, 
+    rgba(0, 0, 0, 0.05) 20%, 
+    rgba(0, 0, 0, 0.05) 40%,
+    rgba(255, 255, 255, 0.03) 40%,
+    rgba(255, 255, 255, 0.03) 60%,
+    rgba(0, 0, 0, 0.08) 60%,
+    rgba(0, 0, 0, 0.08) 80%,
+    transparent 80%
+  );
+  pointer-events: none;
+}
+
+.hero-main-card {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.karyatim-hero-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.hero-logo-svg {
+  width: 84px;
+  height: 84px;
+}
+
+.hero-logo-words {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.hero-brand-name {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+}
+
+.hero-brand-mid {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  opacity: 0.95;
+}
+
+.hero-brand-sub {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 3.5px;
+  color: #EBF5FF;
+  opacity: 0.9;
+}
+
+.hero-main-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+  line-height: 1.22;
+  letter-spacing: -0.5px;
+}
+
+.hero-lead-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #EBF5FF;
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.hero-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.btn-hero-primary {
+  background-color: #FFFFFF;
+  color: var(--blue-dark);
+  font-size: 1.05rem;
+  padding: 14px 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.btn-hero-primary:hover {
+  background-color: #F8FAFC;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-hero-secondary {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  font-size: 1.05rem;
+  padding: 14px 28px;
+  backdrop-filter: blur(8px);
+}
+.btn-hero-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: #FFFFFF;
+  transform: translateY(-3px);
+}
+
+.pdf-contact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.contact-pill-item {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.contact-pill-item:hover {
+  background-color: #FFFFFF;
+  color: var(--blue-dark);
+}
+
+.pill-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-wa);
+  border-radius: 50%;
+}
+
+/* ---------------- Common PDF Slide Styles ---------------- */
+.section {
+  padding: 80px 0;
+}
+
+.pdf-slide-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 44px 40px 32px;
+  box-shadow: var(--shadow-pdf-card);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blue Rounded Pill Badge (Identitas Khas Header PDF) */
+.pdf-pill-badge {
+  display: table;
+  margin: 0 auto 32px;
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 10px 38px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-pill);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+.pdf-pill-badge.large {
+  font-size: 1.75rem;
+  padding: 12px 48px;
+}
+
+/* Bottom Bar khas tiap slide PDF */
+.slide-bottom-bar {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.slide-pills-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.slide-pill {
+  background-color: var(--blue-bg-subtle);
+  color: var(--blue-dark);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-blue);
+}
+
+.slide-next-btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--blue-primary);
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 119, 200, 0.3);
+  transition: all var(--transition-fast);
+}
+.slide-next-btn:hover {
+  background-color: var(--blue-dark);
+  transform: translateX(4px);
+}
+.slide-next-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------------- About Us Section (Page 2 PDF) ---------------- */
+.section-about-pdf {
+  background: url('assets/portfolio/hero/hero-1.jpg') center/cover no-repeat;
+  position: relative;
+}
+.section-about-pdf::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(240, 246, 252, 0.92);
+}
+.section-about-pdf .container {
+  position: relative;
+  z-index: 2;
+}
+
+.about-content-box {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px 0 20px;
+}
+
+.about-lead-bold {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text-navy);
+  line-height: 1.6;
+}
+
+.about-divider {
+  width: 80px;
+  height: 4px;
+  background: var(--blue-primary);
+  border-radius: var(--radius-pill);
+  margin: 24px auto;
+}
+
+.about-focus-text {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ---------------- Our Clients Section (Page 3 PDF) ---------------- */
+.clients-subtitle {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 680px;
+  margin: -10px auto 32px;
+}
+
+.clients-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.client-logo-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all var(--transition-fast);
+}
+.client-logo-card:hover {
+  border-color: var(--blue-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 119, 200, 0.12);
+}
+
+.client-name {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.bold-blue { color: #005A9E; font-size: 1.1rem; }
+.bold-black { color: #111827; font-size: 1.1rem; }
+.green-text { color: #15803D; font-style: italic; }
+.red-text { color: #DC2626; font-size: 0.85rem; }
+.maersk-text { color: #0284C7; font-weight: 900; }
+.pp-text { color: #0F766E; font-size: 0.85rem; }
+.pegadaian-text { color: #059669; font-weight: 800; }
+.ninja-text { color: #B91C1C; }
+.nutri-text { color: #047857; }
+.indofood-text { color: #1D4ED8; font-size: 1.05rem; }
+.maison-text { color: #854D0E; font-size: 0.85rem; }
+.diamond-text { color: #E11D48; }
+.bhirawa-text { color: #991B1B; font-size: 0.85rem; }
+.bumn-text { color: #0369A1; font-size: 0.85rem; }
+.pal-text { color: #075985; font-size: 0.85rem; }
+.ubaya-text { color: #D97706; font-size: 0.85rem; }
+.kamadjaja-text { color: #BE123C; font-size: 0.85rem; }
+
+/* ---------------- What We Do Section (Page 4 PDF) ---------------- */
+.what-we-do-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.what-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 200px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.what-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+.what-card:hover .what-img {
+  transform: scale(1.08);
+}
+
+.what-label {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 37, 64, 0.88) 100%);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-align: center;
+  padding: 24px 10px 12px;
+}
+
+/* Featured Team Banner at Indofood CBP */
+.team-showcase-banner {
+  background: var(--blue-bg-subtle);
+  border: 1.5px solid var(--color-border-blue);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.team-banner-img-wrap {
+  height: 100%;
+  min-height: 240px;
+}
+
+.team-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-banner-info {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-tag-pill {
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  width: fit-content;
+}
+
+.team-banner-info h3 {
+  font-size: 1.45rem;
+  color: var(--blue-dark);
+}
+
+.team-banner-info p {
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  font-weight: 600;
+}
+
+.team-note {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-top: 4px;
+}
+
+/* ---------------- Portfolio Section (Pages 5 - 22 PDF) ---------------- */
+.section-header-center {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-lead-text {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 720px;
+  margin: -16px auto 28px;
+}
+
+.pdf-filter-tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.pdf-tab-btn {
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-dark);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.pdf-tab-btn:hover {
+  border-color: var(--blue-primary);
+  color: var(--blue-primary);
+}
+.pdf-tab-btn.active {
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  border-color: var(--blue-primary);
+  box-shadow: var(--shadow-btn);
+}
+
+.portfolio-slides-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-slide-block {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 36px 36px 28px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-pdf-card);
+  transition: transform var(--transition-normal);
+}
+.project-slide-block:hover {
+  box-shadow: 0 20px 45px -5px rgba(0, 119, 200, 0.18);
+}
+
+.project-slide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pdf-slide-badge {
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 8px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-pill);
+  letter-spacing: 0.3px;
+}
+
+.slide-counter {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* 4-Image Grid khas PDF */
+.project-quad-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.project-quad-grid.grid-2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.quad-item {
+  height: 240px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--blue-bg-subtle);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.quad-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+.quad-item:hover img {
+  transform: scale(1.06);
+}
+
+.project-slide-footer {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.project-contact-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.c-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--blue-bg-subtle);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-blue);
+}
+
+.btn-consult-slide {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--blue-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-consult-slide:hover {
+  color: var(--blue-dark);
+  text-decoration: underline;
+  transform: translateX(4px);
+}
+
+/* ---------------- Keuntungan Kerjasama Bareng Kami (Page 23 PDF) ---------------- */
+.pdf-3d-title {
+  text-align: center;
+  font-size: 2.35rem;
+  font-weight: 900;
+  color: var(--blue-primary);
+  letter-spacing: -0.5px;
+  margin-bottom: 36px;
+  text-transform: uppercase;
+  text-shadow: 0 3px 6px rgba(0, 119, 200, 0.2);
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.advantage-pill-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-border-blue);
+  border-radius: var(--radius-pill);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 4px 12px rgba(0, 119, 200, 0.06);
+  transition: all var(--transition-fast);
+}
+.advantage-pill-card:hover {
+  border-color: var(--blue-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 119, 200, 0.15);
+}
+
+.adv-check-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.adv-check-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.adv-text {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-navy);
+}
+
+/* Promo Callout Box dari Page 23 */
+.pdf-promo-callout {
+  background: linear-gradient(135deg, var(--blue-bg-subtle) 0%, #FFFFFF 100%);
+  border: 2px dashed var(--blue-primary);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.promo-small-tag {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.promo-main-tag {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--blue-primary);
+  margin-bottom: 12px;
+}
+
+.promo-instruct {
+  font-size: 1.05rem;
+  color: var(--color-text-dark);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.promo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.btn-primary {
+  background: var(--color-wa);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+.btn-primary:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-wa);
+}
+
+.btn-outline-blue {
+  background: transparent;
+  color: var(--blue-primary);
+  border: 2px solid var(--blue-primary);
+}
+.btn-outline-blue:hover {
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+.btn-block {
+  width: 100%;
+}
+
+/* ---------------- Estimator & Form Section ---------------- */
+.section-estimator-pdf {
+  background: var(--blue-deep);
+  color: #FFFFFF;
+}
+
+.estimator-grid-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.estimator-info-left .pdf-pill-badge {
+  margin-inline: 0;
+  margin-bottom: 20px;
+}
+
+.estimator-head {
+  font-size: 2.2rem;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.estimator-sub {
+  font-size: 1.05rem;
+  color: #CBD5E1;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.estimator-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.eb-item {
+  display: flex;
+  gap: 14px;
+}
+
+.eb-bullet {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.eb-item strong {
+  display: block;
+  font-size: 1rem;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+.eb-item p {
+  font-size: 0.85rem;
+  color: #94A3B8;
+}
+
+.inquiry-form-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  color: var(--color-text-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-title-blue {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--blue-dark);
+  margin-bottom: 4px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-navy);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-dark);
+  transition: all var(--transition-fast);
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--blue-primary);
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(0, 119, 200, 0.15);
+}
+
+.btn-submit-wa {
+  background: var(--color-wa);
+  color: #FFFFFF;
+  padding: 14px;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+.btn-submit-wa:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+}
+
+.secure-badge-note {
+  font-size: 0.775rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ---------------- Connect With Us & Footer (Page 24 PDF) ---------------- */
+.section-connect-pdf {
+  background: var(--color-bg-page);
+  padding: 80px 0 40px;
+}
+
+.connect-card {
+  text-align: center;
+}
+
+.connect-info-box {
+  max-width: 640px;
+  margin: 0 auto 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.connect-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--blue-bg-subtle);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-blue);
+}
+
+.connect-label {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--blue-dark);
+}
+
+.connect-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.link-highlight {
+  color: var(--blue-primary);
+}
+.link-highlight:hover {
+  color: var(--blue-dark);
+  text-decoration: underline;
+}
+
+.qr-scan-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.scan-badge {
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+}
+
+.qr-code-frame {
+  width: 130px;
+  height: 130px;
+  padding: 10px;
+  background: #FFFFFF;
+  border: 2px solid var(--blue-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 18px rgba(0, 119, 200, 0.15);
+}
+
+.qr-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.qr-hint {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.subfooter-copyright {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ---------------- Floating WhatsApp Drawer ---------------- */
+.floating-wa-wrapper {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+}
+
+.floating-wa-btn {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-wa);
+  color: #FFFFFF;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-wa);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+.floating-wa-btn svg {
+  width: 32px;
+  height: 32px;
+}
+.floating-wa-btn:hover {
+  transform: scale(1.08);
+  background-color: #20BA5A;
+}
+
+.floating-tooltip {
+  position: absolute;
+  right: 70px;
+  background: var(--blue-deep);
+  color: #FFFFFF;
+  font-size: 0.775rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(10px);
+  transition: all var(--transition-fast);
+}
+.floating-wa-btn:hover .floating-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.floating-wa-card {
+  position: absolute;
+  bottom: 74px;
+  right: 0;
+  width: 320px;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-smooth);
+}
+.floating-wa-card.active {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floating-card-header {
+  background: var(--blue-primary);
+  color: #FFFFFF;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wa-avatar-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wa-avatar {
+  width: 36px;
+  height: 36px;
+}
+.wa-avatar svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wa-card-name {
+  font-size: 0.9rem;
+  color: #FFFFFF;
+}
+
+.wa-status-text {
+  font-size: 0.725rem;
+  color: #EBF5FF;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wa-online-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-wa);
+  border-radius: 50%;
+}
+
+.wa-close-btn {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.floating-card-body {
+  padding: 16px;
+  background: var(--color-bg-page);
+}
+
+.wa-card-msg {
+  font-size: 0.8125rem;
+  color: var(--color-text-dark);
+  background: #FFFFFF;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  line-height: 1.45;
+}
+
+.wa-agent-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wa-agent-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+.wa-agent-btn:hover {
+  border-color: var(--color-wa);
+  background: #F0FDF4;
+}
+
+.agent-info strong {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-text-navy);
+}
+.agent-info span {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.agent-action-arrow {
+  color: var(--color-wa);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* ---------------- Responsive Breakpoints ---------------- */
+@media (max-width: 992px) {
+  .hero-main-title {
+    font-size: 2.2rem;
+  }
+  .clients-logo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .what-we-do-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .team-showcase-banner {
+    grid-template-columns: 1fr;
+  }
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+  .estimator-grid-box {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar-right {
+    display: none;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: all var(--transition-smooth);
+    z-index: 999;
+  }
+  .nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+
+  .hero-pdf-style {
+    padding: 50px 0 70px;
+  }
+  .hero-main-title {
+    font-size: 1.85rem;
+  }
+  .hero-lead-text {
+    font-size: 1rem;
+  }
+  .pdf-pill-badge {
+    font-size: 1.25rem;
+    padding: 8px 24px;
+  }
+  .pdf-3d-title {
+    font-size: 1.65rem;
+  }
+  .pdf-slide-card {
+    padding: 28px 20px 20px;
+  }
+  .clients-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .what-we-do-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-quad-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-quad-grid.grid-2col {
+    grid-template-columns: 1fr;
+  }
+  .quad-item {
+    height: 200px;
+  }
+  .connect-row {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    border-radius: var(--radius-lg);
+  }
+  .floating-wa-wrapper {
+    bottom: 20px;
+    right: 20px;
+  }
+  .floating-wa-card {
+    width: calc(100vw - 40px);
+    right: 0;
+  }
+}
